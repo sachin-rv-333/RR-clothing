@@ -29,8 +29,8 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
       className="group cursor-pointer bg-[#141414] rounded-xl overflow-hidden border border-[#262626] hover:scale-[1.03] transition-all duration-300 shadow-xl min-w-[280px] sm:min-w-0"
     >
       <div className="relative h-[300px] sm:h-[400px] overflow-hidden bg-black/50">
-        <img 
-          src={handleImgError ? "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800&auto=format&fit=crop" : product.image} 
+        <img
+          src={handleImgError ? "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800&auto=format&fit=crop" : product.image}
           alt={product.name}
           onError={() => setHandleImgError(true)}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -41,13 +41,13 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
       <div className="p-5">
         <h3 className="font-black text-white text-xs uppercase tracking-widest mb-1 leading-tight line-clamp-1">{product.name}</h3>
         <p className="font-bold text-slate-400 text-xs mb-4">₹{product.price}</p>
-        
-        <a 
+
+        <a
           href="tel:+919148161724"
-          onClick={(e) => e.stopPropagation()} 
+          onClick={(e) => e.stopPropagation()}
           className="flex items-center justify-center w-full py-4 bg-white text-black text-[10px] font-black uppercase tracking-widest hover:bg-gray-200 transition-colors duration-300 rounded-xl"
         >
-          Add to Cart
+          📞 Call to Order
         </a>
       </div>
     </motion.div>
@@ -87,16 +87,16 @@ export default function FeaturedProducts() {
             <h2 className="text-3xl lg:text-4xl font-black text-white uppercase tracking-tight">
               The <span className="text-white/40">Collection</span>
             </h2>
-            
+
             {/* Nav Arrows */}
             <div className="hidden sm:flex gap-2">
-              <button 
+              <button
                 onClick={() => scroll('left')}
                 className="w-10 h-10 flex items-center justify-center bg-[#141414] border border-[#262626] text-white rounded-full hover:bg-white hover:text-black transition-all"
               >
                 <ChevronLeft size={20} />
               </button>
-              <button 
+              <button
                 onClick={() => scroll('right')}
                 className="w-10 h-10 flex items-center justify-center bg-[#141414] border border-[#262626] text-white rounded-full hover:bg-white hover:text-black transition-all"
               >
@@ -104,7 +104,7 @@ export default function FeaturedProducts() {
               </button>
             </div>
           </div>
-          
+
           {/* Scrolling Category Bar with Auto Center */}
           <div className="overflow-x-auto no-scrollbar py-4 -mx-4 px-4 sm:mx-0 sm:px-0">
             <div className="flex gap-3 min-w-max">
@@ -113,11 +113,10 @@ export default function FeaturedProducts() {
                   key={cat}
                   ref={(el) => { catRefs.current[i] = el; }}
                   onClick={() => handleCategoryClick(i, cat)}
-                  className={`px-6 py-3 text-[10px] font-black uppercase tracking-widest transition-all duration-300 rounded-full border ${
-                    active === cat
+                  className={`px-6 py-3 text-[10px] font-black uppercase tracking-widest transition-all duration-300 rounded-full border ${active === cat
                       ? "bg-white text-black border-white shadow-lg shadow-white/5"
                       : "bg-[#141414] text-[#A1A1AA] border-[#262626] hover:border-white hover:text-white"
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>
@@ -127,13 +126,13 @@ export default function FeaturedProducts() {
         </motion.div>
 
         {/* Product Grid with Horizontal Scroll on Mobile */}
-        <div 
+        <div
           ref={scrollContainerRef}
           className="flex sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-x-visible no-scrollbar pb-6 sm:pb-0"
         >
           {filtered.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
         </div>
-        
+
         <div className="mt-10 md:mt-14 text-center">
           <a
             href="https://maps.app.goo.gl/uLrxuNGPQFBY7BPz8"
